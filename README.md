@@ -1,4 +1,4 @@
-# Cosine Similarity with TF‑IDF Approach
+# Cosine Similarity Using TF‑IDF Approach
 
 This repository demonstrates how to compute **document similarity** using **TF‑IDF vectorization** and **cosine similarity** in a practical, notebook-based workflow.
 
