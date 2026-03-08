@@ -22,6 +22,7 @@ to create something like an **HMM + TF-IDF + Cosine similarity**.
 
 - `HMMtext_for_training.txt`  
   Text data currently stored in the repo (can be used for tokenization/training experiments, especially for markov chain model).
+  Source: [<mark>https://medium.com/data-science/hidden-markov-models-explained-with-a-real-life-example-and-python-code-2df2a7956d65</mark>](URL)
 
 - `README.md`  
   Project overview (this file).
