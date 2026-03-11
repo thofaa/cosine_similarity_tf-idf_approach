@@ -4,11 +4,11 @@ This repository is a **mixed NLP playground** that currently contains:
 1) **Markov Chain** based text generation (notebook)  
 2) **TF‑IDF + Cosine Similarity** for document/text similarity (notebook)  
 
-**FURTHER PROJECT (HYBRID-HMM)**
+**FURTHER PROJECT:**
 The longer-term goal is to *connect these ideas* and explore whether we can build a practical pipeline that combines:
 - **sequence modeling** ideas from (Hidden) Markov Models, and
 - **retrieval / similarity** signals from **TF‑IDF + cosine similarity**,  
-to create something like an **HMM + TF-IDF + Cosine similarity**.
+to create something like a **hybrid-HMM** -> *HMM + TF-IDF + Cosine similarity**.
 
 ---
 
@@ -22,7 +22,6 @@ to create something like an **HMM + TF-IDF + Cosine similarity**.
 
 - `HMMtext_for_training.txt`  
   Text data currently stored in the repo (can be used for tokenization/training experiments, especially for markov chain model).
-  Source: [<mark>https://medium.com/data-science/hidden-markov-models-explained-with-a-real-life-example-and-python-code-2df2a7956d65</mark>](URL)
 
 - `README.md`  
   Project overview (this file).
@@ -38,8 +37,7 @@ A classic probabilistic approach to generate text by learning token transition p
 - preprocess text → tokenize
 - build n-gram transitions (order-1, order-2, etc.)
 - generate text by sampling next tokens from transition distribution
-
-**Why it matters for the bigger goal:**  
+  
 Markov Chains are the stepping stone to **Hidden Markov Models (HMMs)**. HMMs add *hidden states* and an *emission model*, which can help represent “topics/styles/states” underlying observed tokens.
 
 ---
@@ -55,37 +53,11 @@ A bag-of-words baseline to compare texts using TF‑IDF vectors and cosine simil
 - calculating weight cosine similarity
 - rank nearest neighbors / similar sentences
 - compare it with no weighted cosine similarity (without TF-IDF approach)
-
-**Why it matters for the bigger goal:**  
-TF‑IDF/cosine can be used as:
+ 
+**TF‑IDF/cosine can be used as:**
 - a **retrieval step** (find candidate similar sentences/segments),
 - a **scoring feature** to choose among candidate generations,
 - a **weak signal** for clustering/initial state assignment for HMM-style modeling.
-
----
-
-## How to run
-
-### Option A: Run locally
-```bash
-git clone https://github.com/thofaa/cosine_similarity_tf-idf_approach.git
-cd cosine_similarity_tf-idf_approach
-
-# recommended
-python -m venv .venv
-# mac/linux:
-source .venv/bin/activate
-# windows:
-# .venv\Scripts\activate
-
-```
-
-Then open one of:
-- `cosine_tf_idf.ipynb`
-- `textgeneration_markovchain.ipynb`
-
-### Option B: Google Colab
-Upload the notebooks to Colab (or open from GitHub) and run all cells.
 
 ---
 
@@ -94,5 +66,4 @@ Upload the notebooks to Colab (or open from GitHub) and run all cells.
 TF‑IDF + cosine similarity isn’t a standard “emission probability” for an HMM (HMMs usually assume emissions are generated from a probability distribution). But it *can still be useful* in a hybrid system as:
 - a retrieval step to choose candidate states/segments,
 - a scoring feature for reranking,
-- a clustering tool to create pseudo-states,
 - or as an additional signal combined with probabilistic components.
